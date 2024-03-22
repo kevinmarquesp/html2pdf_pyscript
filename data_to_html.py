@@ -48,7 +48,11 @@ def converter_para_matriz(lista_num, colunas_pp=2, fichas_pc=3, celulas_pf=4):
                     else:
                         ficha_atual.append(None)
 
-                coluna_atual.append(tuple(ficha_atual))
+                celulas_ficha = tuple(ficha_atual)
+
+                coluna_atual.append((None, None, None, None)
+                                    if None in celulas_ficha
+                                    else celulas_ficha)
 
             pagina_atual.append(coluna_atual)
 
