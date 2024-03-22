@@ -28,8 +28,6 @@ def converter_para_matriz(lista_num, colunas_pp=2, fichas_pc=3, celulas_pf=4):
     total_paginas = (len(lista_num) + celulas_pp - 1) // celulas_pp
     resultado = []
 
-    print(total_paginas)
-
     for pagina in range(total_paginas):
         pagina_atual = []
 
@@ -44,7 +42,7 @@ def converter_para_matriz(lista_num, colunas_pp=2, fichas_pc=3, celulas_pf=4):
                         * celulas_pf + ficha * celulas_pf + celula
 
                     if indice < len(lista_num):
-                        ficha_atual.append(indice)
+                        ficha_atual.append(lista_num[indice])
                     else:
                         ficha_atual.append(None)
 
