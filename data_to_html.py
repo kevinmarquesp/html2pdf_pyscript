@@ -113,7 +113,8 @@ def gerar_html(matriz, template_html=TEMPLATE_HTML_PADRAO,
 
 
 def gerar_html_e_escrever(matriz, output, template_html=TEMPLATE_HTML_PADRAO,
-                          imagem=IMAGEM_PADRAO, descricao=DESCRICAO_PADRAO):
+                          imagem=IMAGEM_PADRAO, descricao=DESCRICAO_PADRAO,
+                          font_tamanho=FONT_TAMANHO_PADRAO):
     f"""Essa função funciona em volta da função 'gerar_html()', a diferença é
     que essa usa o output da anterior pra escrever o HTML gerado num arquivo
     especificado pelo usuário.
@@ -136,7 +137,8 @@ def gerar_html_e_escrever(matriz, output, template_html=TEMPLATE_HTML_PADRAO,
         tudo, não só as fontes. É importante que essa string seja compatível
         com as unidades de medida do CSS. Por padrão é {FONT_TAMANHO_PADRAO}.
     """
-    resultado = gerar_html(matriz, template_html, imagem, descricao)
+    resultado = gerar_html(matriz, template_html, imagem, descricao,
+                           font_tamanho)
 
     with open(output, "w") as op:
         op.write(resultado)
