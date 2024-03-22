@@ -144,7 +144,12 @@ def gerar_html_e_escrever(matriz, output, template_html=TEMPLATE_HTML_PADRAO,
         op.write(resultado)
 
 
+# Se você não usar esse script como um módulo, ele vai acabar criando um
+# arquivo 'index.output.html' com algumas dimensões customizadas, pra testar
+# como o css que escrevi lida com tudo isso...
+
 if __name__ == "__main__":
-    matriz = converter_para_matriz([r.randint(1000, 9999)
-                                    for _ in range(5000 * 4)])
-    gerar_html_e_escrever(matriz, OUTPUT_PADRAO)
+    lista_nums = [r.randint(1000, 9999) for _ in range(5000 * 4 + 16)]
+    matriz = converter_para_matriz(lista_nums, colunas_pp=3, fichas_pc=4)
+
+    gerar_html_e_escrever(matriz, OUTPUT_PADRAO, font_tamanho="7pt")
