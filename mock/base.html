@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HTML to PDF</title>
+
+		<style>
+			*, *::before, *::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				font-family: sans-serif;
+				font-size: 8pt;
+
+				--fg: hsl(0, 0%, 35%);
+				--fg-alt: hsl(0, 0%, 75%);
+				--bg: hsl(0, 0%, 85%);
+
+				--coluna-gap: 2.5rem;
+				--banner-url: url("");
+			}
+
+			@page {
+				size: A4;
+				padding: 48px;
+			}
+
+			.pagina {
+				page-break-after: always;
+				padding: 2rem;
+
+				display: flex;
+				gap: var(--coluna-gap);
+			}
+
+			.coluna {
+				width: 100%;
+			}
+
+			.ficha {
+				margin-bottom: 2.5rem;
+			}
+
+			.fish:last-child {
+				margin-bottom: 0;
+			}
+
+			.ficha-banner {
+				background-color: var(--bg);
+
+				display: grid;
+				place-items: center;
+
+				width: 100%;
+				aspect-ratio: 2 / 1;
+				margin-bottom: 1rem;
+
+				border-radius: 16px;
+				overflow: hidden;
+
+				color: var(--fg);
+
+				display: grid;
+				place-items: center;
+			}
+
+			.ficha-banner img {
+				width: 100%;
+			}
+
+			.imagem-placeholder {
+				padding: 0 3rem;
+			}
+
+			.jogo {
+				display: grid;
+				place-items: center;
+				gap: .5rem;
+
+				grid-template-rows: 1fr 1fr;
+				grid-template-columns: 1fr 1fr;
+
+				margin-bottom: 1rem;
+			}
+
+			.celula {
+				display: block;
+				width: 100%;
+
+				border: solid var(--fg-alt) 2px;
+				border-radius: 8px;
+
+				text-align: center;
+				font-size: 1.3rem;
+				letter-spacing: 12px;
+				font-weight: bold;
+				color: var(--fg);
+
+				padding: 1rem 0;
+			}
+
+			.descricao {
+				padding: 0 1rem;
+
+				text-align: center;
+				color: var(--fg);
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<section class="pagina">
+			<div class="coluna col-a">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+			<div class="coluna col-b">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="pagina">
+			<div class="coluna col-a">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+			<div class="coluna col-b">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="pagina">
+			<div class="coluna col-a">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+			<div class="coluna col-b">
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<img src="https://i.pinimg.com/originals/7a/7e/a1/7a7ea1d7fbededa69475b26829077e0c.png" alt="">
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+				<article class="ficha">
+					<picture class="ficha-banner">
+						<p>
+							Tente usar uma imagem com proporção 1:2 se possível
+						</p>
+					</picture>
+					<div class="jogo">
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+						<span class="celula">1234</span>
+					</div>
+					<p class="descricao">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta voluptate eius.
+					</p>
+				</article>
+			</div>
+		</section>
+
+	</body>
+</html>
