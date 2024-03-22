@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HTML to PDF</title>
+
+		<style>
+			*, *::before, *::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				font-family: sans-serif;
+				font-size: {{ font_tamanho }};
+
+				--fg: hsl(0, 0%, 35%);
+				--fg-alt: hsl(0, 0%, 75%);
+				--bg: hsl(0, 0%, 85%);
+
+				--coluna-gap: 2.5rem;
+				--banner-url: url("");
+			}
+
+			@page {
+				size: A4;
+				padding: 48px;
+			}
+
+			.pagina {
+				page-break-after: always;
+				padding: 2rem;
+
+				display: flex;
+				gap: var(--coluna-gap);
+			}
+
+			.coluna {
+				width: 100%;
+			}
+
+			.ficha {
+				margin-bottom: 2.5rem;
+			}
+
+			.fish:last-child {
+				margin-bottom: 0;
+			}
+
+			.ficha-banner {
+				background-color: var(--bg);
+
+				display: grid;
+				place-items: center;
+
+				width: 100%;
+				aspect-ratio: 2 / 1;
+				margin-bottom: 1rem;
+
+				border-radius: 16px;
+				overflow: hidden;
+
+				color: var(--fg);
+
+				display: grid;
+				place-items: center;
+			}
+
+			.ficha-banner img {
+				width: 100%;
+			}
+
+			.imagem-placeholder {
+				padding: 0 3rem;
+			}
+
+			.jogo {
+				display: grid;
+				place-items: center;
+				gap: .5rem;
+
+				grid-template-rows: 1fr 1fr;
+				grid-template-columns: 1fr 1fr;
+
+				margin-bottom: 1rem;
+			}
+
+			.celula {
+				display: block;
+				width: 100%;
+
+				border: solid var(--fg-alt) 2px;
+				border-radius: 8px;
+
+				text-align: center;
+				font-size: 1.3rem;
+				letter-spacing: 12px;
+				font-weight: bold;
+				color: var(--fg);
+
+				padding: 1rem 0;
+			}
+
+			.descricao {
+				padding: 0 1rem;
+
+				text-align: center;
+				color: var(--fg);
+			}
+		</style>
+
+	</head>
+	<body>
+
+		{% for pagina in matriz %}
+			<section class="pagina">
+				{% for coluna in pagina %}
+					<div class="coluna">
+						{% for ficha in coluna %}
+							{% if None not in ficha %}
+								<article class="ficha">
+
+									<picture class="ficha-banner">
+										{% if imagem %}
+											<img src="{{ imagem }}" alt="Banner da ficha.">
+										{% endif %}
+									</picture>
+									<div class="jogo">
+
+										{% for celula in ficha %}
+											<span class="celula">
+												{{ celula }}
+											</span>
+										{% endfor %}
+
+									</div>
+									<p class="descricao">
+										{{ descricao }}
+									</p>
+
+								</article>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endfor %}
+			</section>
+		{% endfor %}
+
+	</body>
+</html>
