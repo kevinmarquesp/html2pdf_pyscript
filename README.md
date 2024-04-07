@@ -20,22 +20,34 @@ Clone o repositório na sua máquina e rode o script `data_to_html.py`. Ele
 deve usar o template de HTML em `template/base.html` pra gerar um arquivo
 `index.output.html`.
 
-> [!INFO]
+> [!NOTE]
 > Eu usei o `mock/base.html` pra me guiar, você pode usar ele pra entender como
 > código final vai parecer, mais ou menos.
 
 ## Customizando
 
 ```py
+def converter_para_matriz(
+    lista_num,   # Lista com números, cada número será um valor da ficha
+    colunas_pp,  # Colunas por página (2 por padrão)
+    fichas_pc,   # Fichas por coluna (3 por padrão)
+    celulas_pf   # Cédulas por ficha (4 cédulas por ficha é o padrão)
+) -> list[list[list[tuple[int]]]]:
+
 def gerar_html_e_escrever(
-    matriz,         # Lista de números, cada card terá 4
+    matriz,         # Matriz complicada que... Olha a função anterior...
     output,         # Nome do arquivo final
     template_html,  # Template pra gerar o HTML, olhe o arquivo `template/base.html` antes!
     imagem,         # URL da imagem de cada ficha, pode ser omitido se não quizer imagem
     descricao,      # Pequeno texto inferior que cada ficha pode ter
-    font_tamanho,   # Tamanho da fonte, use unidades CSS como `9pt` ou `1.5rem`
+    font_tamanho    # Tamanho da fonte, use unidades CSS como `9pt` ou `1.5rem`
 ):
 ```
+
+> [!WARNING]
+> Se você já têm a lista de números, passe essa lista pra função 
+> `converte_para_matriz` e pegue esse retorno pra passar pra função
+> `gerar_html_e_escrever`!
 
 Alguns detalhes: se a imagem for omitida, a página terá um espaço em branco
 onde a imagem ficaria; e se a matríz não tiver um tamanho que seja múltiplo de
